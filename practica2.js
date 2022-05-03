@@ -11,16 +11,16 @@ fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
        console.log(error)
    })
 
-   async function getCoins(){
+   async function bitcon(){
     try{
         const response = await fetch ('https://restcountries.com/v2/all');
         const data = await response.json();
-        let coinsList = "";
-        Array.from(data).forEach(coin => {
-            coinsList+= `${coin['rate']}`;
+        let bitsList = "";
+        Array.from(data).forEach(bit => {
+            bitsList+= `${bit['rate']}`;
         });
 
-        fs.writeFile('Bitcoin.csv', coinsList, (error) => {
+        fs.writeFile('Bitcoin.csv', bitsList, (error) => {
             if (error){
                 console.log(error);
                 return;
@@ -34,6 +34,6 @@ fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
     }
     
 }
-getCoins();
+bitcon();
 
   
